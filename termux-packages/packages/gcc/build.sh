@@ -30,7 +30,6 @@ elif [ "$TERMUX_ARCH" = "i686" ]; then
         TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-arch=i686 --with-tune=atom --with-fpmath=sse"
 fi
 TERMUX_PKG_RM_AFTER_INSTALL="bin/gcc-ar bin/gcc-ranlib bin/*c++ bin/gcc-nm lib/gcc/*-linux-*/${TERMUX_PKG_VERSION}/plugin lib/gcc/*-linux-*/${TERMUX_PKG_VERSION}/include-fixed lib/gcc/*-linux-*/$TERMUX_PKG_VERSION/install-tools libexec/gcc/*-linux-*/${TERMUX_PKG_VERSION}/plugin libexec/gcc/*-linux-*/${TERMUX_PKG_VERSION}/install-tools share/man/man7"
-#source ~/termux-packages/termuxbuildenv.sh
 export AR_FOR_TARGET="${TERMUX_HOST_PLATFORM}-ar"
 export AS_FOR_TARGET="${TERMUX_HOST_PLATFORM}-as"
 export CC_FOR_TARGET="${TERMUX_HOST_PLATFORM}-gcc"
@@ -78,7 +77,6 @@ DFLAGS=${LDFLAGS_FOR_TARGET}
 CPPFLAGS=${CPPFLAGS_FOR_TARGET}
 CPP=${CPP_FOR_TARGET} 
 FC=${FC_FOR_TARGET} 
-toolexeclibdir="${TERMUX_PREFIX}/lib"
 ../../src/libgfortran/configure --disable-multilib $HOST_FLAG --prefix=${TERMUX_PREFIX} --libdir=${TERMUX_PREFIX}/lib --enable-shared --disable-static --libexecdir=$TERMUX_PREFIX/libexec LD=${LD_FOR_TARGET} --no-create --no-recursion toolexeclibdir=${TERMUX_PREFIX}/lib --enable-version-specific-runtime-libs
 ./config.status
 make -j $TERMUX_MAKE_PROCESSES
