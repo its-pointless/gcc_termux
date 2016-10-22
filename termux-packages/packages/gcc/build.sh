@@ -62,12 +62,9 @@ unset LDFLAGS
 }
 
 termux_step_make () {
-        set > ~/gccbuildenv.env
-
 	make -j $TERMUX_MAKE_PROCESSES all-gcc
 	mkdir libgfortran 
 	cd libgfortran
-	set > ~/prefortranbuild.env
 	cp ../../src/libgcc/gthr-posix.h ./gthr-default.h
 	
 LD=${LD_FOR_TARGET}
