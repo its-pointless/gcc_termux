@@ -5,4 +5,18 @@ This is a compiler of last resort hecause you
 need to compile fortran or something needs gcc and
 only gcc.
 
+Added arm gcc with gfortran and libgfortran is now in gcc deb.
+
+
+If you want to do this yourself its not hard.
+https://github.com/xianyi/OpenBLAS/wiki/How-to-build-OpenBLAS-for-Android
+I compiled arm and arm64 tool chain for linux x86_64 (the .tar.bz2 file)
+so you can extract over the android ndk tool chain for ndk-13 and when termux creates tool chain it should
+pull stuff in. 
+https://github.com/xianyi/OpenBLAS/wiki/How-to-build-OpenBLAS-for-Android
+
+The default makefile for openblas uses hardfp and termux uses softfp so it won't work
+on termux. but its easy enough to edit the Makefile.arm file. 
+
+I probably won't bother with this stuff again but hopefully you can work out what to do. 
 
