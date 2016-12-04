@@ -9,13 +9,13 @@ TERMUX_PKG_NO_DEVELSPLIT=yes
 TERMUX_PKG_KEEP_STATIC_LIBRARIES=yes
 TERMUX_PKG_DEPENDS="gcc"
 #haven't tested yet on x86
-TERMUX_PKG_BLACKLISTED_ARCHES="x86_64, i686"
+TERMUX_PKG_BLACKLISTED_ARCHES="x86_64, i686, arm"
 termux_step_make () {
 	
-	if [ $TERMUX_ARCH == 'aarch64' ]; then
+	#if [ $TERMUX_ARCH == 'aarch64' ]; then
 		make TARGET=ARMV8 BINARY=64 HOSTCC=gcc CC=aarch64-linux-android-gcc FC=aarch64-linux-android-gfortran -j  ${TERMUX_MAKE_PROCESSES} 
-	else 
-	make TARGET=ARMV7 HOSTCC=gcc CC=arm-linux-androideabi-gcc FC=arm-linux-androideabi-gfortran -j  ${TERMUX_MAKE_PROCESSES}
-fi
+	#else 
+	#make TARGET=ARMV7 HOSTCC=gcc CC=arm-linux-androideabi-gcc FC=arm-linux-androideabi-gfortran -j  ${TERMUX_MAKE_PROCESSES}
+#fi
 }
 
