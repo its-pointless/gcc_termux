@@ -19,5 +19,5 @@ The default makefile for openblas uses hardfp and termux uses softfp so it won't
 on termux. Don't use it on arm use either lapack or atlas. Atlas will likely be faster
 than lapack. 
 
-I probably won't bother with this stuff again but hopefully you can work out what to do. 
-
+LDFLAGS when compiling scipy and numpy for distribution is important. You can compile on android 6.0 and it might not 
+work on 5.1 because the linker is different. 
