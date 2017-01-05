@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/sh
+cd /data/data/com.termux/files/usr/bin
+rm gcc
+rm g++
+rm cpp
+rm gfortran
+ln -s clang gcc
+ln -s clang g++
+ln -s clang cpp
+echo "now using clang as default compiler"

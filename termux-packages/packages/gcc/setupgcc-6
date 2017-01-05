@@ -1,0 +1,22 @@
+#!/data/data/com.termux/files/usr/bin/sh
+ARCHITECTURE=$(dpkg --print-architecture)
+PLATFORM=${ARCHITECTURE}-linux-android
+if [[ ARCHITECTURE == "arm" ]]
+then PLATFORM=arm-linux-androideabi
+fi
+cd /data/data/com.termux/files/usr/bin/
+rm gcc
+rm g++
+rm cpp
+rm ${PLATFORM}-gcc
+rm ${PLATFORM}-g++
+rm ${PLATFORM}-cpp
+ln -s gcc-6 gcc
+ln -s g++-6 g++
+ln -s cpp-6 cpp
+ln -s gfortran-6 gfortran
+ln -s gcc ${PLATFORM}-gcc
+ln -s g++ ${PLATFORM}-g++
+ln -s cpp ${PLATFORM}-cpp
+echo "gcc now points to gcc-6 this is kind of buggy only use this if you know what you are doing"
+

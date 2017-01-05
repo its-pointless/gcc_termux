@@ -4,8 +4,8 @@ TERMUX_PKG_MAINTAINER="its-pointless @github"
 TERMUX_PKG_DEPENDS="binutils, libgmp, libmpfr, libmpc, ndk-sysroot, libgcc, libisl"
 TERMUX_HOST_PLATFORM="${TERMUX_ARCH}-linux-android"
 if [ $TERMUX_ARCH = "arm" ]; then TERMUX_HOST_PLATFORM="${TERMUX_HOST_PLATFORM}eabi"; fi
-TERMUX_PKG_VERSION=6.2.0
-TERMUX_PKG_BUILD_REVISION=1
+TERMUX_PKG_VERSION=6.3.0
+#TERMUX_PKG_BUILD_REVISION=1
 TERMUX_STANDALONE_TOOLCHAIN="$TERMUX_TOPDIR/_lib/toolchain-${TERMUX_ARCH}-ndk${TERMUX_NDK_VERSION}-api${TERMUX_API_LEVEL}"
 TERMUX_PKG_SRCURL=ftp://ftp.gnu.org/gnu/gcc/gcc-${TERMUX_PKG_VERSION}/gcc-${TERMUX_PKG_VERSION}.tar.bz2
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-languages=c,c++,fortran --with-system-zlib --disable-multilib --disable-lto"
@@ -17,7 +17,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-stage1-ldflags=\"-specs=$TERMUX_SCRIPT
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-isl-include=$TERMUX_PREFIX/include --with-isl-lib=$TERMUX_PREFIX/lib"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --disable-isl-version-check"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --disable-tls"
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-host-shared"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-host-shared --enable-host-libquadmath"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-default-pie"
 
 
@@ -30,6 +30,7 @@ elif [ "$TERMUX_ARCH" = "i686" ]; then
         TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-arch=i686 --with-tune=atom --with-fpmath=sse"
 fi
 TERMUX_PKG_RM_AFTER_INSTALL="bin/gcc-ar bin/gcc-ranlib bin/*c++ bin/gcc-nm lib/gcc/*-linux-*/${TERMUX_PKG_VERSION}/plugin lib/gcc/*-linux-*/${TERMUX_PKG_VERSION}/include-fixed lib/gcc/*-linux-*/$TERMUX_PKG_VERSION/install-tools libexec/gcc/*-linux-*/${TERMUX_PKG_VERSION}/plugin libexec/gcc/*-linux-*/${TERMUX_PKG_VERSION}/install-tools share/man/man7"
+#source ~/termux-packages/termuxbuildenv.sh
 export AR_FOR_TARGET="${TERMUX_HOST_PLATFORM}-ar"
 export AS_FOR_TARGET="${TERMUX_HOST_PLATFORM}-as"
 export CC_FOR_TARGET="${TERMUX_HOST_PLATFORM}-gcc"
@@ -77,6 +78,7 @@ DFLAGS=${LDFLAGS_FOR_TARGET}
 CPPFLAGS=${CPPFLAGS_FOR_TARGET}
 CPP=${CPP_FOR_TARGET} 
 FC=${FC_FOR_TARGET} 
+
 ../../src/libgfortran/configure --disable-multilib $HOST_FLAG --prefix=${TERMUX_PREFIX} --libdir=${TERMUX_PREFIX}/lib --enable-shared --disable-static --libexecdir=$TERMUX_PREFIX/libexec LD=${LD_FOR_TARGET} --no-create --no-recursion toolexeclibdir=${TERMUX_PREFIX}/lib --enable-version-specific-runtime-libs
 ./config.status
 make -j $TERMUX_MAKE_PROCESSES
@@ -87,6 +89,8 @@ termux_step_make_install () {
 	make install-gcc
 	cd libgfortran
 	make install
+	cp ${TERMUX_PKG_BUILDER_DIR}/setupgcc-6 /data/data/com.termux/files/usr/bin
+	cp ${TERMUX_PKG_BUILDER_DIR}/setupclang /data/data/com.termux/files/usr/bin
 }
 
 termux_step_post_make_install () {
@@ -107,12 +111,19 @@ elf_i386
 HERE
 	fi
 
-	# Replace hardlinks with symlinks:
+	# Replace hardlinks with symlinks and fix it so it coexists with clang.
 	cd $TERMUX_PREFIX/bin
-	rm ${TERMUX_HOST_PLATFORM}-g++; ln -s g++ ${TERMUX_HOST_PLATFORM}-g++
-	rm ${TERMUX_HOST_PLATFORM}-gcc; ln -s gcc ${TERMUX_HOST_PLATFORM}-gcc
-	rm ${TERMUX_HOST_PLATFORM}-gcc-${TERMUX_PKG_VERSION}; ln -s gcc ${TERMUX_HOST_PLATFORM}-gcc-${TERMUX_PKG_VERSION}
-        rm ${TERMUX_HOST_PLATFORM}-gfortran; ln -s gfortran ${TERMUX_HOST_PLATFORM}-gfortran
+	mv gcc gcc-6
+	mv gfortran gfortran-6
+	mv g++ g++-6
+	mv cpp cpp-6
+	rm ${TERMUX_HOST_PLATFORM}-g++; ln -fs g++-6 ${TERMUX_HOST_PLATFORM}-g++-6
+	rm ${TERMUX_HOST_PLATFORM}-gcc; ln -fs gcc-6 ${TERMUX_HOST_PLATFORM}-gcc-6
+	rm ${TERMUX_HOST_PLATFORM}-gcc-${TERMUX_PKG_VERSION}; ln -s gcc-6 ${TERMUX_HOST_PLATFORM}-gcc-${TERMUX_PKG_VERSION}
+        rm ${TERMUX_HOST_PLATFORM}-gfortran; ln -fs gfortran-6 ${TERMUX_HOST_PLATFORM}-gfortran; ln -fs gfortran-6 ${TERMUX_HOST_PLATFORM}-gfortran-6
+	ln -fs cpp-6 ${TERMUX_HOST_PLATFORM}-cpp-6
 	# Add symbolic links for libgfortran build specific links library to LD_LIBRARY_PATH
-	ln -f -s ${TERMUX_PREFIX}/lib/gcc/${TERMUX_HOST_PLATFORM}/${TERMUX_PKG_VERSION}/libgfortran* $TERMUX_PREFIX/lib/
+	ln -fs ${TERMUX_PREFIX}/lib/gcc/${TERMUX_HOST_PLATFORM}/${TERMUX_PKG_VERSION}/libgfortran* $TERMUX_PREFIX/lib
+	chmod +x /data/data/com.termux/files/usr/bin/setupgcc-6
+	chmod +x /data/data/com.termux/files/usr/bin/setupclang
 }
