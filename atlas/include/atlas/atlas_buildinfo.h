@@ -1,0 +1,31 @@
+#ifndef ATL_INSTINFO_H
+   #define ATL_INSTINFO_H
+
+#define ATL_ARCH "ARMa732FPV3D2MACNEONNONIEEE"
+#define ATL_INSTFLAGS "-1 0 -a 1 -l 1"
+#define ATL_F2CDEFS "-DAdd_ -DF77_INTEGER=int -DStringSunStyle"
+#define ATL_ARCHDEFS "-DATL_OS_Linux -DATL_ARCH_ARMa7 -DATL_FPV3D2MACNEON -DATL_FPV3D16MACNEON -DATL_FPV3D32MAC -DATL_FPV3D16MAC -DATL_GAS_ARM"
+#define ATL_DKCFLAGS "-O -fomit-frame-pointer -mfpu=neon -fPIC"
+#define ATL_DKC "/data/data/com.termux/files/usr/bin/gcc"
+#define ATL_SKCFLAGS "-O2 -fselective-scheduling2 -mfpu=neon -fPIC"
+#define ATL_SKC "/data/data/com.termux/files/usr/bin/gcc"
+#define ATL_DMCFLAGS "-O2 -mcpu=cortex-a7 -fno-schedule-insns -fselective-scheduling2 -mfpu=neon -fPIC"
+#define ATL_DMC "/data/data/com.termux/files/usr/bin/gcc"
+#define ATL_SMCFLAGS "-O2 -fselective-scheduling2 -mfpu=neon -fPIC"
+#define ATL_SMC "/data/data/com.termux/files/usr/bin/gcc"
+#define ATL_ICCFLAGS "-DL2SIZE=4194304 -I/data/data/com.termux/files/home/datlas/thread/include -I/data/data/com.termux/files/home/datlas/thread/../ATLAS//include -I/data/data/com.termux/files/home/datlas/thread/../ATLAS//include/contrib -DAdd_ -DF77_INTEGER=int -DStringSunStyle -DATL_OS_Linux -DATL_ARCH_ARMa7 -DATL_FPV3D2MACNEON -DATL_FPV3D16MACNEON -DATL_FPV3D32MAC -DATL_FPV3D16MAC -DATL_GAS_ARM -DATL_NONIEEE=1 -DATL_DYLIBS -DATL_FULL_LAPACK -DATL_ARM_SOFTFP=1 -DATL_NCPU=4 -DATL_TRUST_ANTPT -O2 -fselective-scheduling2 -mfpu=n"
+#define ATL_ICC "/data/data/com.termux/files/usr/bin/gcc"
+#define ATL_F77FLAGS "-O2 -mfpu=neon -fPIC"
+#define ATL_F77 "/data/data/com.termux/files/usr/bin/gfortran"
+#define ATL_DKCVERS "gcc (GCC) 6.3.0"
+#define ATL_SKCVERS "gcc (GCC) 6.3.0"
+#define ATL_DMCVERS "gcc (GCC) 6.3.0"
+#define ATL_SMCVERS "gcc (GCC) 6.3.0"
+#define ATL_ICCVERS "gcc (GCC) 6.3.0"
+#define ATL_F77VERS "GNU Fortran (GCC) 6.3.0"
+#define ATL_SYSINFO "Linux localhost 3.4.112-B--B-PWR-CORE-AOSP-v1.5 #1 SMP PREEMPT Thu Nov 17 20:49:35 CET 2016 armv7l Android"
+#define ATL_DATE    "Mon Dec 26 09:51:04 AEDT 2016"
+#define ATL_UNAM    "u0_a72"
+#define ATL_VERS    "3.10.3"
+
+#endif

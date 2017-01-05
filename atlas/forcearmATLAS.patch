@@ -1,0 +1,104 @@
+diff -u -r -r ATLAS/CONFIG/src/backend/comptestF.f workingarmatlas/datlas/ATLAS/CONFIG/src/backend/comptestF.f
+--- ATLAS/CONFIG/src/backend/comptestF.f	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/comptestF.f	2016-12-19 10:59:26.000000000 +1100
+@@ -1,4 +1,5 @@
+       PROGRAM COMPTEST
+       PRINT*, 'SUCCESS'
++      FLUSH 6
+       STOP
+       END
+diff -u -r -r ATLAS/CONFIG/src/backend/f2cintF.f workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cintF.f
+--- ATLAS/CONFIG/src/backend/f2cintF.f	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cintF.f	2016-12-19 11:03:21.000000000 +1100
+@@ -13,14 +13,19 @@
+        CALL F2CINTC(IARR, D)
+       IF (D .EQ. 1.0) THEN
+          PRINT*,'F2C int = C int'
++      FLUSH 6
+       ELSE IF (D .EQ. 2.0) THEN
+          PRINT*,'F2C int = C long'
++      FLUSH 6
+       ELSE IF (D .EQ. 3.0) THEN
+          PRINT*,'F2C int = C long long'
++      FLUSH 6
+       ELSE IF (D .EQ. 4.0) THEN
+          PRINT*,'F2C int = C short'
++      FLUSH 6
+       ELSE
+          PRINT*, 'ERROR'
++      FLUSH 6
+       ENDIF
+ *
+        STOP
+diff -u -r -r ATLAS/CONFIG/src/backend/f2cnameF.f workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cnameF.f
+--- ATLAS/CONFIG/src/backend/f2cnameF.f	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cnameF.f	2016-12-19 11:01:42.000000000 +1100
+@@ -6,14 +6,19 @@
+       CALL C_ROUTINE(D)
+       IF (D .EQ. 1.0) THEN
+          PRINT*,'F2C name=-DAdd_'
++      FLUSH 6
+       ELSE IF (D .EQ. 2.0) THEN
+          PRINT*,'F2C name=-DNoChange'
++      FLUSH 6
+       ELSE IF (D .EQ. 3.0) THEN
+          PRINT*,'F2C name=-DUpCase'
++      FLUSH 6
+       ELSE IF (D .EQ. 4.0) THEN
+          PRINT*,'F2C name=-DAdd__'
++      FLUSH 6
+       ELSE
+          PRINT*, 'ERROR'
++      FLUSH 6
+       ENDIF
+ *
+       STOP
+diff -u -r -r ATLAS/CONFIG/src/backend/f2cstrF.f workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cstrF.f
+--- ATLAS/CONFIG/src/backend/f2cstrF.f	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/f2cstrF.f	2016-12-19 11:00:51.000000000 +1100
+@@ -6,14 +6,19 @@
+       CALL CROUT(D, '123', -1, '12345', -2)
+       IF (D .EQ. 1.0) THEN
+          PRINT*,'F2C string = -DStringSunStyle'
++      FLUSH 6
+       ELSE IF (D .EQ. 2.0) THEN
+          PRINT*,'F2C string = -DStringCrayStyle'
++      FLUSH 6
+       ELSE IF (D .EQ. 3.0) THEN
+          PRINT*,'F2C string = -DStringStructVal'
++      FLUSH 6
+       ELSE IF (D .EQ. 4.0) THEN
+          PRINT*,'F2C string = -DStringStructPtr'
++      FLUSH 6
+       ELSE
+          PRINT*, 'ERROR'
++      FLUSH 6
+       ENDIF
+ *
+       STOP
+diff -u -r -r ATLAS/CONFIG/src/backend/flibchkF.f workingarmatlas/datlas/ATLAS/CONFIG/src/backend/flibchkF.f
+--- ATLAS/CONFIG/src/backend/flibchkF.f	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/flibchkF.f	2016-12-19 11:02:48.000000000 +1100
+@@ -7,6 +7,6 @@
+        A(1) = (A(1) * A(2)) / A(3)
+        IF (DIMAG(A(1)) .EQ. 99999.97) STOP
+        PRINT*,' SUCCESS'
+-*
++       FLUSH 6
+        RETURN
+        END
+diff -u -r -r ATLAS/CONFIG/src/backend/probe_arm32_FPABI.c workingarmatlas/datlas/ATLAS/CONFIG/src/backend/probe_arm32_FPABI.c
+--- ATLAS/CONFIG/src/backend/probe_arm32_FPABI.c	2016-07-29 05:43:01.000000000 +1000
++++ workingarmatlas/datlas/ATLAS/CONFIG/src/backend/probe_arm32_FPABI.c	2016-12-25 08:32:52.000000000 +1100
+@@ -7,11 +7,6 @@
+ )
+ int main(int nargs, char **args)
+ {
+-   float hardfptst(float f0, float f1, float f2);
+-   STOMP_FPREGS;
+-   if (hardfptst(-2.0, 2.0, 4.0) == 6.0)
+-      printf("FPABI='HARDFP'\n");
+-   else
+       printf("FPABI='SOFTFP'\n");
+    return(0);
+ }

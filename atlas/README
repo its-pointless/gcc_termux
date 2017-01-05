@@ -1,0 +1,7 @@
+built on a samsung s4
+command line I used 
+../ATLAS/configure -Si lapackref 1 -Si antthr 1 --shared  -t 4  -Ss pmake '$(MAKE) -j 4' -V 30720  -A 55   -O 1 --with-netlib-lapack-tarfile=/data/data/com.termux/files/home/lapack-3.6.1.tgz   --prefix=/data/data/com.termux/files/usr --incdir=/data/data/com.termux/files/usr/include  --libdir=/data/data/com.termux/files/usr/lib -Si ieee 0 -Si latune 1
+
+
+xtune count hangs so i forced anthr 1
+
