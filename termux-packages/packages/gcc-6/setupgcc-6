@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 ARCHITECTURE=$(dpkg --print-architecture)
 PLATFORM=${ARCHITECTURE}-linux-android
-if [[ ARCHITECTURE == "arm" ]]
+if [[ $ARCHITECTURE == "arm" ]]
 then PLATFORM=arm-linux-androideabi
 fi
 cd /data/data/com.termux/files/usr/bin/
