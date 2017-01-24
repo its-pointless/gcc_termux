@@ -1,3 +1,10 @@
+If you are after numpy and scipy you can find latest in required_aarch64 and
+required_arm directories.
+
+Also just build R as an experiment. R-termux-aarch64.zip
+
+
+
 termux gcc resurrected purely because scipy needs it. 
 Don't annoy fornwall if you find a bug since its 
 entirely unsupported. 
