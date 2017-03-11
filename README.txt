@@ -3,7 +3,11 @@ required_arm directories.
 
 Also just build R as an experiment. R-termux-aarch64.zip
 
-
+Octave seems to be working fairly well...
+report bugs???
+Its less annoying to compile than R so i might fix things that are really broken. 
+The scripts to compile fortran stuff needs a bit of work to be more user friendly 
+and less of a hack. 
 
 termux gcc resurrected purely because scipy needs it. 
 Don't annoy fornwall if you find a bug since its 
