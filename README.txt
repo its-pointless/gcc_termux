@@ -16,7 +16,7 @@ This is a compiler of last resort hecause you
 need to compile fortran or something needs gcc and
 only gcc.
 
-Added arm gcc with gfortran and libgfortran is now in gcc deb.
+
 For scipy to work you need blaslib(openblas, reference blas +lapack or atlas) libgfortran
 numpy and scipy.
 
