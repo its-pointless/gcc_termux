@@ -1,7 +1,10 @@
-If you are after numpy and scipy you can find latest in required_aarch64 and
-required_arm directories.
 
-Also just build R as an experiment. R-termux-aarch64.zip
+From now on im using apt for updates
+add 
+deb [trusted=yes] https://its-pointless.github.io/files/  termux extras
+to sources.list or add a file with it in etc/apt/sources.list.d/
+gpg key is https://its-pointless.github.io/pointless.gpg
+
 
 Octave seems to be working fairly well...
 report bugs???
