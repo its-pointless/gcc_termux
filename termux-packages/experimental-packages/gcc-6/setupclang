@@ -3,7 +3,7 @@ cd /data/data/com.termux/files/usr/bin
 rm gcc
 rm g++
 rm cpp
-rm gfortran
+rm gfortran >/dev/null 2>&1 
 ln -s clang gcc
 ln -s clang g++
 ln -s clang cpp

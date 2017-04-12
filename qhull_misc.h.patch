@@ -1,0 +1,11 @@
+--- scipy/spatial/qhull_misc.h.old	2017-04-12 12:39:31.400327359 +1000
++++ ./scipy/spatial/qhull_misc.h	2017-04-12 12:39:48.548003621 +1000
+@@ -24,7 +24,7 @@
+ 
+ #define qhull_misc_lib_check() QHULL_LIB_CHECK
+ 
+-#if HAVE_OPEN_MEMSTREAM
++#if HAVE_OPEN_MEMSTREAM && !defined __ANDROID__
+ FILE *qhull_open_memstream(char **ptr, size_t *sizeloc)
+ {
+     return open_memstream(ptr, sizeloc);

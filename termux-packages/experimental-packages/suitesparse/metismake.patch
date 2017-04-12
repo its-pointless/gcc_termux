@@ -1,0 +1,11 @@
+--- ../cache/SuiteSparse/metis-5.1.0/Makefile	2013-03-30 16:24:45.000000000 +0000
++++ ./metis-5.1.0/Makefile	2017-03-05 09:26:24.419382825 +0000
+@@ -62,7 +62,7 @@
+ 
+ all clean install:
+ 	@if [ ! -f $(BUILDDIR)/Makefile ]; then \
+-		more BUILD.txt; \
++		cat BUILD.txt; \
+ 	else \
+ 	  	make -C $(BUILDDIR) $@ $(MAKEFLAGS); \
+ 	fi

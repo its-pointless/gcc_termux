@@ -1,0 +1,28 @@
+--- ../cache/SuiteSparse/Makefile	2016-12-08 19:33:34.000000000 +0000
++++ ./Makefile	2017-03-05 09:48:47.601225279 +0000
+@@ -58,16 +58,16 @@
+ 	chmod 644 $(INSTALL_DOC)/SuiteSparse_README.txt
+ ifeq (,$(MY_METIS_LIB))
+         # install METIS from SuiteSparse/metis-5.1.0
+-	- $(CP) lib/libmetis.* $(INSTALL_LIB)
+-	- $(CP) metis-5.1.0/manual/manual.pdf $(INSTALL_DOC)/METIS_manual.pdf
+-	- $(CP) metis-5.1.0/README.txt $(INSTALL_DOC)/METIS_README.txt
++	#- $(CP) lib/libmetis.* $(INSTALL_LIB)
++	#- $(CP) metis-5.1.0/manual/manual.pdf $(INSTALL_DOC)/METIS_manual.pdf
++	#- $(CP) metis-5.1.0/README.txt $(INSTALL_DOC)/METIS_README.txt
+         # the following is needed only on the Mac, so *.dylib is hardcoded:
+-	$(SO_INSTALL_NAME) $(INSTALL_LIB)/libmetis.dylib $(INSTALL_LIB)/libmetis.dylib
+-	- $(CP) include/metis.h $(INSTALL_INCLUDE)
+-	chmod 755 $(INSTALL_LIB)/libmetis.*
+-	chmod 644 $(INSTALL_INCLUDE)/metis.h
+-	chmod 644 $(INSTALL_DOC)/METIS_manual.pdf
+-	chmod 644 $(INSTALL_DOC)/METIS_README.txt
++	#$(SO_INSTALL_NAME) $(INSTALL_LIB)/libmetis.dylib $(INSTALL_LIB)/libmetis.dylib
++	#- $(CP) include/metis.h $(INSTALL_INCLUDE)
++	#chmod 755 $(INSTALL_LIB)/libmetis.*
++	#chmod 644 $(INSTALL_INCLUDE)/metis.h
++	#chmod 644 $(INSTALL_DOC)/METIS_manual.pdf
++	#chmod 644 $(INSTALL_DOC)/METIS_README.txt
+ endif
+ 
+ # uninstall all packages

@@ -5,12 +5,11 @@ TERMUX_PKG_DEPENDS="binutils, libgmp, libmpfr, libmpc, ndk-sysroot, libgcc, libi
 TERMUX_HOST_PLATFORM="${TERMUX_ARCH}-linux-android"
 if [ $TERMUX_ARCH = "arm" ]; then TERMUX_HOST_PLATFORM="${TERMUX_HOST_PLATFORM}eabi"; fi
 TERMUX_PKG_VERSION=6.3.0
-#TERMUX_PKG_BUILD_REVISION=1
-TERMUX_STANDALONE_TOOLCHAIN="$TERMUX_TOPDIR/_lib/toolchain-${TERMUX_ARCH}-ndk${TERMUX_NDK_VERSION}-api${TERMUX_API_LEVEL}"
+TERMUX_PKG_REVISION=3
 TERMUX_PKG_SRCURL=ftp://ftp.gnu.org/gnu/gcc/gcc-${TERMUX_PKG_VERSION}/gcc-${TERMUX_PKG_VERSION}.tar.bz2
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-languages=c,c++,fortran --with-system-zlib --disable-multilib --disable-lto"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-languages=c,c++,fortran --with-system-zlib --disable-multilib "
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --target=${TERMUX_HOST_PLATFORM} --with-libgfortran"
-
+TERMUX_PKG_MAINTAINER=" @its-pointless github"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-gmp=$TERMUX_PREFIX --with-mpfr=$TERMUX_PREFIX --with-mpc=$TERMUX_PREFIX"
 # To build gcc as a PIE binary:
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-stage1-ldflags=\"-specs=$TERMUX_SCRIPTDIR/termux.spec\""
@@ -19,7 +18,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --disable-isl-version-check"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --disable-tls"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-host-shared --enable-host-libquadmath"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --enable-default-pie"
-
+TERMUX_PKG_SHA256=f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f
 
 if [ "$TERMUX_ARCH" = "arm" ]; then
         TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --with-arch=armv7-a --with-fpu=neon --with-float=softfp"
@@ -65,7 +64,7 @@ termux_step_make () {
 	make -j $TERMUX_MAKE_PROCESSES all-gcc
 	mkdir libgfortran 
 	cd libgfortran
-	cp ../../src/libgcc/gthr-posix.h ./gthr-default.h
+cp ../../src/libgcc/gthr-posix.h ./gthr-default.h
 	
 LD=${LD_FOR_TARGET}
 AR=${AR_FOR_TARGET}
@@ -79,7 +78,7 @@ CPPFLAGS=${CPPFLAGS_FOR_TARGET}
 CPP=${CPP_FOR_TARGET} 
 FC=${FC_FOR_TARGET} 
 
-../../src/libgfortran/configure --disable-multilib $HOST_FLAG --prefix=${TERMUX_PREFIX} --libdir=${TERMUX_PREFIX}/lib --enable-shared --disable-static --libexecdir=$TERMUX_PREFIX/libexec LD=${LD_FOR_TARGET} --no-create --no-recursion toolexeclibdir=${TERMUX_PREFIX}/lib --enable-version-specific-runtime-libs
+../../src/libgfortran/configure --disable-multilib $HOST_FLAG --prefix=${TERMUX_PREFIX} --libdir=${TERMUX_PREFIX}/lib --enable-shared --disable-static --libexecdir=$TERMUX_PREFIX/libexec LD=${LD_FOR_TARGET} --no-create --no-recursion toolexeclibdir=${TERMUX_PREFIX}/lib --enable-version-specific-runtime-libs --enable-fast-install=no 
 ./config.status
 make -j $TERMUX_MAKE_PROCESSES
 }

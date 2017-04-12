@@ -1,0 +1,12 @@
+--- ../cache/OpenBLAS-0.2.19/Makefile.arm64	2016-09-01 03:58:42.000000000 +0000
++++ ./Makefile.arm64	2017-01-23 21:39:13.951113298 +0000
+@@ -1,7 +1,7 @@
+ 
+ ifeq ($(CORE), ARMV8)
+-CCOMMON_OPT += -march=armv8-a
+-FCOMMON_OPT += -march=armv8-a
++CCOMMON_OPT += -march=armv8-a 
++FCOMMON_OPT += -march=armv8-a -O3 
+ endif
+ 
+ ifeq ($(CORE), CORTEXA57)

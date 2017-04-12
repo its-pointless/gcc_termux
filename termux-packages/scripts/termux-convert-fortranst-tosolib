@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# convert .a libs to so. Script is sometimes easier than redoing make files...
+convert_tosolib() {
+INPUTNAME="$@"
+LIBNAME=${INPUTNAME%.a}
+echo $LIBNAME
+$FC --shared   -L/data/data/com.termux/files/usr/lib  -o  ${LIBNAME}.so -L$(pwd)  -Wl,--whole-archive -l:${INPUTNAME} -Wl,--no-whole-archive $LDFLAGS -lgfortran  
+}
+
+USAGE="Usage: $0 convert file.a file2.a to file.so file2.so etc"
+
+if [ "$#" == "0" ]; then
+	echo "$USAGE"
+	exit 1
+fi
+
+while (( "$#" )); do
+
+	#find "$1" -type f -a -atime +365 -exec rm -i {} \;
+	convert_tosolib "$1" ;
+
+shift
+
+done

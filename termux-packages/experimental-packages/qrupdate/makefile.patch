@@ -1,0 +1,11 @@
+--- ../cache/qrupdate-1.1.2/src/Makefile	2010-01-19 11:35:49.000000000 +0000
++++ ./src/Makefile	2017-03-23 06:54:36.845114663 +0000
+@@ -48,7 +48,7 @@
+ 
+ ../libqrupdate.so: $(OBJS)
+ 	$(FC) $(FFLAGS) -shared -o $@ -Wl,-soname=libqrupdate.so.$(MAJOR) $(OBJS) \
+-		$(BLAS) $(LAPACK)
++		$(BLAS) $(LAPACK) ${LDFLAGS}
+ 
+ ../libqrupdate.dylib: $(OBJS)
+ 	$(FC) $(FFLAGS) $(LDFLAGS) -dynamiclib -o $@ -install_name $(PREFIX)/$(LIBDIR)/libqrupdate.$(MAJOR).dylib $(OBJS) \

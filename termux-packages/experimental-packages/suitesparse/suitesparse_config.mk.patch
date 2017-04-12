@@ -1,0 +1,28 @@
+--- ../cache/SuiteSparse/SuiteSparse_config/SuiteSparse_config.mk	2016-12-15 03:54:00.000000000 +1100
++++ ./SuiteSparse_config/SuiteSparse_config.mk	2017-03-06 09:22:49.214426443 +1100
+@@ -56,7 +56,7 @@
+     INSTALL_LIB ?= $(INSTALL)/lib
+     INSTALL_INCLUDE ?= $(INSTALL)/include
+     INSTALL_DOC ?= $(INSTALL)/share/doc/suitesparse-$(SUITESPARSE_VERSION)
+-
++    CHOLMOD_CONFIG = -DNPARTITION
+     #---------------------------------------------------------------------------
+     # optimization level
+     #---------------------------------------------------------------------------
+@@ -97,7 +97,6 @@
+ 
+     # with gcc, enable OpenMP directives via -fopenmp
+     # This is not supported on Darwin, so this string is cleared, below.
+-    CFOPENMP ?= -fopenmp
+ 
+     #---------------------------------------------------------------------------
+     # compiler
+@@ -339,7 +338,7 @@
+ 
+     ifeq ($(UNAME),Linux)
+         # add the realtime library, librt, and SuiteSparse/lib
+-        LDLIBS += -lrt -Wl,-rpath=$(INSTALL_LIB)
++        LDLIBS += 
+     endif
+ 
+     #---------------------------------------------------------------------------
