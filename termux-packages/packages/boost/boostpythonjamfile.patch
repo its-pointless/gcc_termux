@@ -1,0 +1,34 @@
+--- ../cache/boost_1_60_0/libs/python/build/Jamfile.v2	2015-09-02 12:07:49.000000000 +0000
++++ ./libs/python/build/Jamfile.v2	2017-04-28 23:07:33.708213172 +0000
+@@ -51,7 +51,8 @@
+   : requirements
+     -<tag>@$(BOOST_JAMROOT_MODULE)%$(BOOST_JAMROOT_MODULE).tag
+     <tag>@$(__name__).tag
+-  ;
++   <target-os>android:<linkflags>"-lpython2.7"  
++;
+ 
+ rule tag ( name : type ? : property-set )
+ {
+@@ -84,7 +85,6 @@
+         tuple.cpp
+         str.cpp
+         slice.cpp
+-
+         converter/from_python.cpp
+         converter/registry.cpp
+         converter/type_id.cpp
+@@ -134,10 +134,11 @@
+             [ cond $(is-py3) : <python>$(py3-version) ]
+         :   # default build
+             <link>shared
+-        :   # usage requirements
++	:   # usage requirements
+             <link>static:<define>BOOST_PYTHON_STATIC_LIB
+             <python-debugging>on:<define>BOOST_DEBUG_PYTHON
+-        ;
++            <target-os>android:<linkflags>"-lpython2.7"
++	;
+ 
+ }
+ 
