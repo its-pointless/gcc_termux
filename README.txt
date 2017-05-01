@@ -4,9 +4,12 @@ add
 deb [trusted=yes] https://its-pointless.github.io/files/  termux extras
 to sources.list or add a file with it in etc/apt/sources.list.d/
 gpg key is https://its-pointless.github.io/pointless.gpg
+apt key add pointless.gpg will add the key to apt
 
+updates
 added boost ledger r-cran 
-the mpv has caca enabled and alpine has been updated.
+the mpv-ext is just mpv with caca enabled and alpine has been updated.
+
 
 Octave seems to be working fairly well...
 report bugs???
