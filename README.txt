@@ -2,9 +2,12 @@
 From now on im using apt for updates
 add 
 deb [trusted=yes] https://its-pointless.github.io/files/  termux extras
-to sources.list or add a file with it in etc/apt/sources.list.d/
+to sources.list or add a file with it in $PREFIX/etc/apt/sources.list.d/
 gpg key is https://its-pointless.github.io/pointless.gpg
-apt key add pointless.gpg will add the key to apt
+if not installed install gnupg
+apt-get install gnupg
+apt-key add pointless.gpg will add the key to apt
+apt-get update
 
 updates
 added boost ledger r-cran 
