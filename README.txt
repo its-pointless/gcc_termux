@@ -9,6 +9,9 @@ apt-get install gnupg
 apt-key add pointless.gpg will add the key to apt
 apt-get update
 
+updated now with termux-packages pull requests as well
+
+electrum egg added ...
 updates
 added boost ledger r-cran 
 the mpv-ext is just mpv with caca enabled and alpine has been updated.
