@@ -9,6 +9,8 @@ apt-get install gnupg
 apt-key add pointless.gpg will add the key to apt
 apt-get update
 
+just added imgflo ... i haven't tested it if someoen wants to inform me how its screwed 
+i would be thankful.
 updated now with termux-packages pull requests as well
 
 electrum egg added ...
