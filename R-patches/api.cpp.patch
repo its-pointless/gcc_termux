@@ -1,0 +1,28 @@
+--- ../Rcpp/src/api.cpp	2017-03-17 23:32:02.000000000 +1100
++++ ./src/api.cpp	2017-05-20 07:31:19.104746562 +1000
+@@ -33,7 +33,7 @@
+ #endif
+ 
+ #if defined(__GNUC__) || defined(__clang__)
+-    #if defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX) || defined(__MUSL__)
++    #if defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX) || defined(__MUSL__) || defined(__ANDROID__)
+         // do nothing
+     #else
+         #include <execinfo.h>
+@@ -272,14 +272,14 @@
+ // [[Rcpp::register]]
+ SEXP stack_trace(const char* file, int line) {
+     #if defined(__GNUC__) || defined(__clang__)
+-        #if defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX) || defined(__MUSL__)
++        #if defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX) || defined(__MUSL__) || defined(__ANDROID__)
+             // Simpler version for Windows and *BSD
+             List trace = List::create(_["file"] = file,
+                                       _[ "line"  ] = line,
+                                       _[ "stack" ] = "C++ stack not available on this system");
+             trace.attr("class") = "Rcpp_stack_trace";
+             return trace;
+-        #else // ! (defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX)
++        #else // ! (defined(_WIN32) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__CYGWIN__) || defined(__sun) || defined(_AIX) 
+ 
+             /* inspired from http://tombarta.wordpress.com/2008/08/01/c-stack-traces-with-gcc/  */
+             const size_t max_depth = 100;
