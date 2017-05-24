@@ -9,6 +9,15 @@ apt-get install gnupg
 apt-key add pointless.gpg will add the key to apt
 apt-get update
 
+
+
+24/05/2017
+
+Added quantlib. Will be adding R stuff shortly. Mpd-ext is also in repo extended for modpluglib and
+libgme. So game emulation music plays. Haven't tested that yet should work.  
+
+
+
 just added imgflo ... i haven't tested it if someoen wants to inform me how its screwed 
 i would be thankful.
 updated now with termux-packages pull requests as well
