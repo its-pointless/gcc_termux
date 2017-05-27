@@ -9,6 +9,9 @@ apt-get install gnupg
 apt-key add pointless.gpg will add the key to apt
 apt-get update
 
+27/05/2017
+added rustc and cargo for arm and aarch64 from @vishalbiswas
+a bit buggy for now 
 
 
 24/05/2017
