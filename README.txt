@@ -9,10 +9,13 @@ apt-get install gnupg
 apt-key add pointless.gpg will add the key to apt
 apt-get update
 
+or use https://its-pointless.github.io/setup-pointless-repo.sh
+
+
 17/07/2017
 
 Got almost everything working with the transision to libc++_shared. Updating the apt
-repo shortyly there are a few things there not mentioned here... 
+repo shortyly there are a few packages there that are not not mentioned here... 
 
 
 
@@ -20,7 +23,6 @@ repo shortyly there are a few things there not mentioned here...
 
 
 
-or use https://its-pointless.github.io/setup-pointless-repo.sh
 27/05/2017
 added rustc and cargo for arm and aarch64 from @vishalbiswas
 a bit buggy for now 

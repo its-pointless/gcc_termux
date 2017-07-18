@@ -1,6 +1,6 @@
 TERMUX_PKG_HOMEPAGE=http://www.netlib.org/lapack/
 TERMUX_PKG_DESCRIPTION="Linear Algebra PACKage"
-TERMUX_PKG_VERSION=3.6.1
+TERMUX_PKG_VERSION=3.7.0
 TERMUX_PKG_SRCURL=http://www.netlib.org/lapack/lapack-${TERMUX_PKG_VERSION}.tgz
 export FC=${TERMUX_HOST_PLATFORM}-gfortran
 termux_step_configure () {
