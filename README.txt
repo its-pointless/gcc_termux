@@ -11,6 +11,11 @@ apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
+22/07/2017
+
+gmic is not working for arm and it appears to be stubborn about it.
+sorry about that. 
+
 
 17/07/2017
 
