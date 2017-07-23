@@ -11,6 +11,11 @@ apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
+
+23/07/2017
+a working gmic binoary for arm required some magic getting it...
+
+
 22/07/2017
 
 gmic is not working for arm and it appears to be stubborn about it.
