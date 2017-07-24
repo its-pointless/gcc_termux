@@ -11,6 +11,8 @@ apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
+24/07/2017
+octave isn't working right now ... 
 
 23/07/2017
 a working gmic binoary for arm required some magic getting it...
