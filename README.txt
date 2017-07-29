@@ -10,6 +10,17 @@ apt-key add pointless.gpg will add the key to apt
 apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
+
+
+
+29/07/2017
+
+to get cargo for arm working add this to ~/.gitconfig 
+
+[url "git://github.com/rust-lang/crates.io-index"]
+        insteadOf = https://github.com/rust-lang/crates.io-index
+
+
 25/07/2017
 octave is fixed and back up on repo as well as gmic arm.
 
