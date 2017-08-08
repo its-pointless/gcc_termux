@@ -10,6 +10,12 @@ apt-key add pointless.gpg will add the key to apt
 apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
+08/08/2017
+adding i686 and x86_64  stuff 
+cargo and rusttc 
+octave and R
+etc
+also some experimental nodejs 8.2.1 builds ...
 
 
 
