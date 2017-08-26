@@ -10,6 +10,17 @@ apt-key add pointless.gpg will add the key to apt
 apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
+
+27/08/2017
+
+added openldap f0r testing need feedback 
+
+updated gcc to 7.2 
+
+added more stuff to x86_64 ans i686
+
+
+
 08/08/2017
 adding i686 and x86_64  stuff 
 cargo and rusttc 
