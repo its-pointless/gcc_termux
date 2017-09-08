@@ -12,7 +12,7 @@ apt-get update
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
-nothing complex kust moving symlinks around
+nothing complex just moving symlinks around
 
 08/09/2017
 
@@ -22,7 +22,7 @@ this will cause commands /bin/sh and /usr/bin/env to be redirected making sheban
 commands work. to change default shell to do this the command fixedshe chsh will work as chsh does.
 
 Doing this will enable  R and Octave library installs to work correctly first time much more often
-
+things like fixedshe octave also work
 
 
 27/08/2017
