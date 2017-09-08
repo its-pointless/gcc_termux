@@ -11,6 +11,20 @@ apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
+use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
+nothing complex kust moving symlinks around
+
+08/09/2017
+
+added fixedshe package and command executing it will start a new shell with
+LD_PRELOAD=$PREFIX/lib/libandroid-fixshebang.so $shell
+this will cause commands /bin/sh and /usr/bin/env to be redirected making shebangs with those 
+commands work. to change default shell to do this the command fixedshe chsh will work as chsh does.
+
+Doing this will enable  R and Octave library installs to work correctly first time much more often
+
+
+
 27/08/2017
 
 added openldap f0r testing need feedback 
