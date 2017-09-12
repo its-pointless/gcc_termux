@@ -14,6 +14,12 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+12/09/2017
+rustc is broken if you upgraded libllvm to 5.0 
+to rememdy that install newly added package libllvm-4so should be working from there
+
+
+
 08/09/2017
 
 added fixedshe package and command executing it will start a new shell with
