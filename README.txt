@@ -14,6 +14,13 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+01/10/2017
+guile 2.0 and 2.2 added
+i686 version for 2.0 has threads disabled due to crashing half the time.
+2.2 has no such issue as far as I can tell but the build process for 2.2 builds
+needs some work before a pull request to main repo.
+
+
 12/09/2017
 rustc is broken if you upgraded libllvm to 5.0 
 to rememdy that install newly added package libllvm-4so should be working from there
