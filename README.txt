@@ -13,6 +13,9 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
+08/10/2017
+added python 2 versions numpy and scipy
+
 
 01/10/2017
 guile 2.0 and 2.2 added
