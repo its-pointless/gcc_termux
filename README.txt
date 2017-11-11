@@ -13,6 +13,15 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
+
+
+
+11/11/2017 
+rustc now working for x86_64 and i686. The bug with cargo on arm is also fixed.
+As libgit2 needed to be compiled with -no-integrated-as the fix is statically linked.
+
+
+
 08/10/2017
 added python 2 versions numpy and scipy
 
