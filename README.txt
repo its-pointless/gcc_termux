@@ -15,6 +15,10 @@ use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
 
+19/11/2017
+r-cran package 3.4.2-1 uploading, should be working again... enabled openmp because i can.
+pforth 32 bit fix upload for testing.
+should get  updated scipy and numpy at some point hopefully soon
 
 11/11/2017 
 rustc now working for x86_64 and i686. The bug with cargo on arm is also fixed.
