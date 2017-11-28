@@ -14,6 +14,11 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+28/11/2017
+added libgomp for gcc-7 in 7.2.0 and ndk 4.9.x flavours
+Thanks to @arietal libcairo now works in R. 
+also added julia lang for i686 x86_64. 
+I have no idea how long or if ever arm and aarch64 will take. 
 
 19/11/2017
 r-cran package 3.4.2-1 uploading, should be working again... enabled openmp because i can.
