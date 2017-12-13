@@ -14,6 +14,10 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+13/12/2017
+added ecl rustc nightly for arm and aarch64. 
+added the cross_config stuff for ecl as well.
+
 28/11/2017
 added libgomp for gcc-7 in 7.2.0 and ndk 4.9.x flavours
 Thanks to @arietal libcairo now works in R. 
