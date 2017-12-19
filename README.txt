@@ -14,6 +14,15 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+20/12/2017
+
+updated cargo for all but i686
+updated rustc-nightly for and added for i686. not on x86_64...
+if i have time i will work on it. Ecl should now compile maxima
+technically there aren't any "major" dependencies missing for sagemath 
+would have to built on device though...
+
+
 13/12/2017
 added ecl rustc nightly for arm and aarch64. 
 added the cross_config stuff for ecl as well.
