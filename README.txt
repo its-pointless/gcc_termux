@@ -14,6 +14,9 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+23/12/2017
+updated ecl arm and julia for x86_64. both should now work again
+
 20/12/2017
 
 updated cargo for all but i686
