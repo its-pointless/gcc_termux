@@ -14,6 +14,17 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+5/01/2018
+changed gcc-7 sources to linaro ... because why not? going to add source so 
+everyone can compile and won't rely on me providing binaries... at all. 
+
+added gnatmake for arm ( other archs are not likely to come since it requires
+a sigtramp implentation that is absent on android)
+
+added racket ... likely buggy for arm and i686. not working yet on 64 bit archs
+
+also adding libboostpython libs which is a pull request for termux/termux-packages 
+
 23/12/2017
 updated ecl arm and julia for x86_64. both should now work again
 
