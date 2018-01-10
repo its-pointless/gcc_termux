@@ -11,8 +11,15 @@ apt-get update
 
 or use https://its-pointless.github.io/setup-pointless-repo.sh
 
-use the commands setupclang setupgcc-6 and setupgcc-7 to switch compilers
+use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
+
+10/01/2018
+
+updated rustc and rustc-nightlies
+fixed issues on x86_64 gcc
+added racket for arm and i686
+
 
 5/01/2018
 changed gcc-7 sources to linaro ... because why not? going to add source so 
