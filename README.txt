@@ -14,6 +14,11 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+7/02/2018
+
+added povray because ... i don't know.
+
+
 10/01/2018
 
 updated rustc and rustc-nightlies
