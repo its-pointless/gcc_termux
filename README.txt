@@ -13,6 +13,12 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
+30/03/2018
+
+julia is compiling on all archs but must be done on device. see my android-termux branch 
+of julia. Also added an arm build for testing...
+
+
 
 20/03/2018
 
