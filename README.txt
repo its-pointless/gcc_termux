@@ -1,7 +1,7 @@
 
 From now on im using apt for updates
 add 
-deb [trusted=yes] https://its-pointless.github.io/files/  termux extras
+deb https://its-pointless.github.io/files/  termux extras
 to sources.list or add a file with .list suffix in $PREFIX/etc/apt/sources.list.d/
 gpg key is https://its-pointless.github.io/pointless.gpg
 if not installed install gnupg
