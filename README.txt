@@ -13,6 +13,13 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
+
+30/07/2018
+fixed a few annoyances with gcc-8 
+Oz now becomes Os automatically 
+and few warnings that llvm-config add won't cause errors since they are 
+only implemented in clang 
+
 30/03/2018
 
 julia is compiling on all archs but must be done on device. see my android-termux branch 
