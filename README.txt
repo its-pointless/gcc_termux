@@ -14,6 +14,16 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+14/08/2018
+
+julia updated to 1.0.0
+installing packages that link to libs is a bit tricky and requires
+wiriting deps.jl yourself so they point to installed termux libs.
+Even if you can compile the libs using julia, without setting 
+LD_LIBRARY_PATH to where julia installed the libs it won't use them
+causing error. 
+
+
 30/07/2018
 fixed a few annoyances with gcc-8 
 Oz now becomes Os automatically 
