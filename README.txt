@@ -14,6 +14,14 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+27/09/2018
+
+Added portaudio and elfutils 
+For port audio to work without issue it requires pulseaudio. It also needs pulseaudio
+sample rate set to PROPERTY_OUTPUT_SAMPLE_RATE or latency is too high
+this value can be obtained via termux-audio-info
+Any issues with this please mention...
+
 14/08/2018
 
 julia updated to 1.0.0
