@@ -14,6 +14,9 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+17/12/2018
+added gnat for x86_64 and aarch64, gprbuild and xmlada packages available as well
+
 27/09/2018
 
 Added portaudio and elfutils 
