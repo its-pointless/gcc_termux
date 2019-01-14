@@ -14,6 +14,13 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+15/01/2019
+ns_parse.h for a few missing reolver libs stuff missing  in android 5 and 6 so msmtp works. Havent tested 
+as its a 20 minute cut and paste job from musl.
+also opencv python3 doesn;t work as is but is easy enough to fix 
+https://github.com/its-pointless/its-pointless.github.io/issues/18 
+will do proper fixes at some point this week.
+
 17/12/2018
 added gnat for x86_64 and aarch64, gprbuild and xmlada packages available as well
 
