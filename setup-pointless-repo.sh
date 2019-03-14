@@ -6,7 +6,7 @@ apt-get  --assume-yes install coreutils gnupg apt-transport-https wget
 # Make the sources.list.d directory
 mkdir $PREFIX/etc/apt/sources.list.d
 # Write the needed source file
-echo "deb [trusted=yes] https://its-pointless.github.io/files/ termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
+echo "deb https://its-pointless.github.io/files/ termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
 # Download signing key from https://its-pointless.github.io/pointless.gpg 
 wget https://its-pointless.github.io/pointless.gpg
 apt-key add pointless.gpg
