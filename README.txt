@@ -14,6 +14,13 @@ or use https://its-pointless.github.io/setup-pointless-repo.sh
 use the commands setupclang setupclang and setupgcc-7 to switch compilers
 nothing complex just moving symlinks around
 
+03/04/2019
+r-cran-tidyverse should work consistently except for those using android-5 due to linking issues
+around librcon.so. Above android-5 the library can see all symbols linked in android-5 that the linker
+won't let the library see symbols in libR.so since its not directly linked. I am not sure right now 
+the correct way to deal with it. But changing $PREFIX/lib/R/etc/Makeconf to add -LR to ldflags and 
+reinstalling readr package will work for now.
+
 15/01/2019
 ns_parse.h for a few missing reolver libs stuff missing  in android 5 and 6 so msmtp works. Havent tested 
 as its a 20 minute cut and paste job from musl.
