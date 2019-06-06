@@ -1,0 +1,17 @@
+--- ./httpuv/src/Makevars.old	2019-06-06 01:37:35.705535143 +0000
++++ ./httpuv/src/Makevars	2019-06-06 01:38:22.075539803 +0000
+@@ -63,12 +63,13 @@
+ # from one to the next, i.e. the order matters. To remove this fragility, we
+ # use "-r aclocal.m4" to ensure that all three files are guaranteed to have
+ # precisely the same timestamp value.
++hthost = $(shell clang -print-target-triple)
+ libuv/Makefile: libuv/m4/lt~obsolete.m4
+ 	(cd libuv \
+ 		&& touch aclocal.m4 \
+ 		&& touch -r aclocal.m4 configure Makefile.in \
+ 		&& chmod +x configure \
+-		&& CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS) $(C_VISIBILITY)" AR="$(AR)" RANLIB="$(RANLIB)" LDFLAGS="$(LDFLAGS)" ./configure $(CONFIGURE_FLAGS))
++		&& CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS) $(C_VISIBILITY)" AR="$(AR)" RANLIB="$(RANLIB)" LDFLAGS="$(LDFLAGS)" ./configure $(CONFIGURE_FLAGS) --host=$(hthost))
+ 
+ libuv/.libs/libuv.a: libuv/Makefile
+ 	$(MAKE) --directory=libuv \
