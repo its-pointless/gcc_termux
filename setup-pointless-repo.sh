@@ -4,7 +4,7 @@ apt-get update
 apt-get  --assume-yes upgrade 
 apt-get  --assume-yes install coreutils gnupg wget 
 # Make the sources.list.d directory
-mkdir $PREFIX/etc/apt/sources.list.d
+mkdir -p $PREFIX/etc/apt/sources.list.d
 # Write the needed source file
 if apt-cache policy | grep -q "https://termux.org/packages" ; then
 echo "deb https://its-pointless.github.io/files/24 termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
@@ -14,5 +14,6 @@ fi
 # Download signing key from https://its-pointless.github.io/pointless.gpg 
 wget https://its-pointless.github.io/pointless.gpg
 apt-key add pointless.gpg
+rm pointless.gpg
 # Update apt
 apt update
