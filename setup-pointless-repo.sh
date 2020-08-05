@@ -9,7 +9,7 @@ mkdir -p $PREFIX/etc/apt/sources.list.d
 if apt-cache policy | grep -q "https://termux.org/packages" ; then
 echo "deb https://its-pointless.github.io/files/24 termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
 else
-echo "deb https://its-pointless.github.io/files/ termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
+echo "deb https://its-pointless.github.io/files/21 termux extras" > $PREFIX/etc/apt/sources.list.d/pointless.list
 fi
 # Download signing key from https://its-pointless.github.io/pointless.gpg 
 wget https://its-pointless.github.io/pointless.gpg
