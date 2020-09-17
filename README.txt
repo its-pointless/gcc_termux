@@ -2,8 +2,8 @@
 From now on im using apt for updates
 add 
 deb https://its-pointless.github.io/files/24  termux extras
-(use https://its-pointless.github.io/files if you are still using android 5 or 6)
-to sources.list or add a file with .list suffix in $PREFIX/etc/apt/sources.list.d/
+(use https://its-pointless.github.io/files/21 if you are still using android 5 or 6)
+file with .list suffix in $PREFIX/etc/apt/sources.list.d/
 gpg key is https://its-pointless.github.io/pointless.gpg
 if not installed install gnupg
 apt-get install gnupg
