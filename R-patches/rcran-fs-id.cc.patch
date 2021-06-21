@@ -1,0 +1,11 @@
+--- ./fs/src/id.cc.orig	2019-02-26 20:06:46.748219347 -0500
++++ ./fs/src/id.cc	2019-02-26 20:07:21.199220828 -0500
+@@ -69,7 +69,7 @@
+ List users_() {
+   std::vector<std::string> names;
+   std::vector<int> ids;
+-#ifndef __WIN32
++#if !defined(__WIN32) && !defined(__ANDROID__)
+   passwd* pwd = getpwent();
+   while (pwd != NULL) {
+     names.push_back(pwd->pw_name);
