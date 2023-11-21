@@ -1,29 +1,50 @@
---- ./fs/src/Makevars.orig	2020-07-29 11:12:05.000000000 -0400
-+++ ./fs/src/Makevars	2020-11-17 17:38:57.335725794 -0500
-@@ -1,4 +1,6 @@
+--- fs/src/Makevars.orig	2023-06-29 15:51:28.000000000 -0400
++++ fs/src/Makevars	2023-11-14 08:36:54.005159721 -0500
+@@ -1,14 +1,17 @@
  UNAME := $(shell uname)
+-
+-LIBUV := libuv-1.44.2
+-
+-PKG_LIBS = ./$(LIBUV)/.libs/libuv.a -pthread
 +HOST := 
 +UNAMEO := $(shell uname -o)
  
- LIBUV := libuv-1.38.1
+ SOURCES = $(wildcard *.cc unix/*.cc)
+ OBJECTS = $(SOURCES:.cc=.o)
  
-@@ -18,6 +20,10 @@
- PKG_LIBS += -lkvm
- endif
- ifeq ($(UNAME), Linux)
-+	ifeq ($(UNAMEO), Android)
-+	HOST = --host=$(shell clang -print-target-triple)
-+endif
++PKG_LIBS += -luv
 +
+ ifeq ($(UNAME), SunOS)
+ PKG_LIBS += -lkstat -lsendfile -lsocket -lxnet
++	 ifeq ($(UNAMEO), Android)
++	 HOST = --host=$(shell clang -print-target-triple)
++	 endif
+ OBJECTS +=  bsd/setmode.o bsd/strmode.o bsd/reallocarray.o
+ endif
+ ifeq ($(UNAME), FreeBSD)
+@@ -21,24 +24,12 @@
  OBJECTS +=  bsd/setmode.o bsd/strmode.o bsd/reallocarray.o
  endif
  
-@@ -29,7 +35,7 @@
+-PKG_CPPFLAGS = -I./$(LIBUV)/include -I. -pthread
+-
+ all: $(SHLIB)
  
- $(LIBUV)/Makefile:
- 	(cd $(LIBUV) \
--	&& CC="$(CC)" CFLAGS="$(CFLAGS) $(CPPFLAGS) $(CPICFLAGS) $(C_VISIBILITY)" AR="$(AR)" RANLIB="$(RANLIB)" LDFLAGS="$(LDFLAGS)" ./configure --quiet)
-+	&& CC="$(CC)" CFLAGS="$(CFLAGS) $(CPPFLAGS) $(CPICFLAGS) $(C_VISIBILITY)" AR="$(AR)" RANLIB="$(RANLIB)" LDFLAGS="$(LDFLAGS)" ./configure --quiet $(HOST) --disable-shared)
+-$(SHLIB): $(LIBUV)/.libs/libuv.a
+-
+-$(LIBUV)/Makefile:
+-	(cd $(LIBUV) \
+-	&& CC="$(CC)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS) $(CPICFLAGS) $(C_VISIBILITY) -std=c99" AR="$(AR)" RANLIB="$(RANLIB)" LDFLAGS="$(LDFLAGS)" ./configure --quiet)
+-
+-$(LIBUV)/.libs/libuv.a: $(LIBUV)/Makefile
+-	$(MAKE) --directory=$(LIBUV) \
+-		HAVE_DTRACE=0
+-
+ .PHONY: shlib-clean clean
  
- $(LIBUV)/.libs/libuv.a: $(LIBUV)/Makefile
- 	$(MAKE) --directory=$(LIBUV) \
+ # shlib-clean: clean
+ 
+ clean:
+-	$(MAKE) --directory=$(LIBUV) distclean
++	$(MAKE) distclean
+ 	rm -f $(OBJECTS)
